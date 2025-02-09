@@ -12,7 +12,7 @@ export default class Note extends Component {
         style={{ backgroundColor: this.props.color }}
         onClick={this.clickHandler.bind(this, this.props.id)}
       >
-        <p className="card-text p-3">{this.props.noteTitle}</p>
+        <p className="card-text p-3">{this.props.title}</p>
       </div>
     );
   }
