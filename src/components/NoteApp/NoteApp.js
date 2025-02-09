@@ -65,6 +65,12 @@ export default class NoteApp extends Component {
     });
   }
 
+  emptyNoteTitle(){
+    this.setState({
+      noteTitle: "",
+      inputColor: "#fff",
+    })
+  }
   render() {
     return (
       <>
@@ -94,7 +100,7 @@ export default class NoteApp extends Component {
                         <ColorBox
                           color={color}
                           key={color}
-                          onColor={this.inputColorHandler}
+                          onColor={this.inputColorHandler.bind(this)}
                         />
                       ))}
                     </div>
@@ -112,6 +118,7 @@ export default class NoteApp extends Component {
                       id="btn-delete"
                       type="button"
                       className="btn btn-outline-danger"
+                      onClick={this.emptyNoteTitle.bind(this)}
                     >
                       <span id="btn-icon" className="fa fa-eraser"></span>
                     </button>
@@ -131,7 +138,7 @@ export default class NoteApp extends Component {
                           <Note
                             {...note}
                             key={note.id}
-                            onRemove={this.removeNote}
+                            onRemove={this.removeNote.bind(this)}
                           />
                         ))}
                       </div>
